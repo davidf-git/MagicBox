@@ -31,10 +31,10 @@ class MAGICBOX_API UPDA_NPC : public UPDA_Character
 public:
 
 	/** NPC Tags that define things about this NPC. */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="NPC")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="NPC")
 	FGameplayTagContainer NPCTags;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="NPC")
+	/** Class of NPC */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="NPC")
 	ENPCArchetype Archetype;
 };

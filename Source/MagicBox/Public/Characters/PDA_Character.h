@@ -15,27 +15,27 @@ class MAGICBOX_API UPDA_Character : public UPrimaryDataAsset
 	GENERATED_BODY()
 	
 public:
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character")
+	/** Player-facing name of this NPC */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character")
 	FText Name;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character|Body")
+	/** Max health */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Body")
 	double MaxHealth = 100;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character|Body")
+	/** Max Mana */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Body")
 	double MaxMana = 200;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character|Body")
+	/** Height (cm) */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Body")
 	double Height = 170;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character|Speed")
+	/** Run speed (cm/s) */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Speed")
 	double RunSpeed = 400;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Character|Speed")
+	/** Walk speed (cm/s) */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Speed")
 	double WalkSpeed = 200;
 };
