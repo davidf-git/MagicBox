@@ -2,7 +2,7 @@ import unreal
 import csv
 
 # Set the path to your CSV file
-csv_file_path = "c:/UE5Projects/MagicBox/Content/MB/NPCs/Monsters.csv"
+csv_file_path = "/MagicBox/Content/MB/NPCs/Monsters.csv"
 asset_path = "/Game/MB/NPCs"
 prefix = "DA_"
 EAL = unreal.EditorAssetLibrary
@@ -24,11 +24,12 @@ try:
             archetype = unreal.NPCArchetype.cast(int(archetypeStr))
             health = row[2]
 
-            #if(EAL.does_asset_exist(asset_path + "/" + prefix + name)):
-            #    EAL.delete_asset(asset_path + prefix + name)
+            if(EAL.does_asset_exist(asset_path + "/" + prefix + name)):
+                print (f"{name} already exists.")
+                EAL.delete_asset(asset_path + prefix + name)
 
-            print("Creating asset for {}".format(name))
-            new_asset = asset_tools.create_asset("DA_"+name,
+            print(f"Creating asset for {name}")
+            new_asset = asset_tools.create_asset(f"DA_{name}",
                                         asset_path,
                                         unreal.PDA_NPC.static_class(),
                                         DAF

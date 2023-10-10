@@ -6,16 +6,608 @@
 		},
 		{
 			"name": "UE5",
-			"path": "C:\\UE5\\UE_5.2"
+			"path": "V:\\UnrealEngine\\UE_5.3"
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off"
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
 	},
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
 			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "MagicBox Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBox Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBox Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBox Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Test",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Test",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBox Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Test",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Shipping",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Shipping",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBox Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBox Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBox",
+					"Win64",
+					"Shipping",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBoxEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Debug",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBoxEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"DebugGame",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MagicBoxEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"label": "MagicBoxEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"MagicBoxEditor",
+					"Win64",
+					"Development",
+					"V:\\MagicBox\\MagicBox.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "V:\\UnrealEngine\\UE_5.3"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch MagicBox (Debug)",
+				"request": "launch",
+				"program": "V:\\MagicBox\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "MagicBox Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBox (DebugGame)",
+				"request": "launch",
+				"program": "V:\\MagicBox\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "MagicBox Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBox (Development)",
+				"request": "launch",
+				"program": "V:\\MagicBox\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "MagicBox Win64 Development Build",
+				"args": [
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBox (Test)",
+				"request": "launch",
+				"program": "V:\\MagicBox\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "MagicBox Win64 Test Build",
+				"args": [
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBox (Shipping)",
+				"request": "launch",
+				"program": "V:\\MagicBox\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "MagicBox Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBoxEditor (Debug)",
+				"request": "launch",
+				"program": "V:\\UnrealEngine\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "MagicBoxEditor Win64 Debug Build",
+				"args": [
+					"V:\\MagicBox\\MagicBox.uproject"
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBoxEditor (DebugGame)",
+				"request": "launch",
+				"program": "V:\\UnrealEngine\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "MagicBoxEditor Win64 DebugGame Build",
+				"args": [
+					"V:\\MagicBox\\MagicBox.uproject"
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch MagicBoxEditor (Development)",
+				"request": "launch",
+				"program": "V:\\UnrealEngine\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "MagicBoxEditor Win64 Development Build",
+				"args": [
+					"V:\\MagicBox\\MagicBox.uproject"
+				],
+				"cwd": "V:\\UnrealEngine\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "V:\\UnrealEngine\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "V:\\UnrealEngine\\UE_5.3"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "V:\\UnrealEngine\\UE_5.3\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=V:\\MagicBox\\MagicBox.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "externalTerminal",
+				"stopAtEntry": false,
+				"cwd": "V:\\UnrealEngine\\UE_5.3"
+			}
 		]
 	}
 }
