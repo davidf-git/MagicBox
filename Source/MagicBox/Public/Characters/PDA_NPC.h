@@ -17,7 +17,7 @@ enum class ENPCArchetype : uint8
 	/** Close quarters expert. */
 	Rusher,	
 	/** Technician or medic. */
-	Suport,
+	Support,
 };
 
 /**
