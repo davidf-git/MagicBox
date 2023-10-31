@@ -35,6 +35,6 @@ public:
 	FGameplayTagContainer NPCTags;
 
 	/** Class of NPC */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="NPC")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, AssetRegistrySearchable, Category="NPC")
 	ENPCArchetype Archetype;
 };

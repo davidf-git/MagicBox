@@ -16,11 +16,11 @@ class MAGICBOX_API UPDA_Character : public UPrimaryDataAsset
 	
 public:
 	/** Player-facing name of this NPC */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character")
-	FText Name;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, AssetRegistrySearchable, Category="Character")
+	FText DisplayName;
 
 	/** Max health */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Character|Body")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, AssetRegistrySearchable, Category="Character|Body")
 	double MaxHealth = 100;
 
 	/** Max Mana */
