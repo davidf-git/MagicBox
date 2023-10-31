@@ -1,40 +1,70 @@
 import unreal
 
-EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
-all_actors = EAS.get_all_level_actors()
+#
+#  Level design script finds all actors at the same location as each other
+#  and prints them to the output log, one line per set of duplicates
+#
 
-def get_folder_path(actor):
-    path = "/"
-    if str(actor.get_folder_path()) != "None":
-        path = str(actor.get_folder_path()) + "/"
-    return path + unreal.SystemLibrary.get_display_name(actor)
-
-def get_duplicate_actors(actors: unreal.Actor):
-    seen = set()
-    dupes = []
-
+# Print the actors in a list that are at duplicate locations
+def get_duplicate_actors(actors: list):
+    location_dict = {}
     for actor in actors:
-        actor_location = (   # Convert the vector to a hashable tuple
-            round(actor.get_actor_location().x, 1),
-            round(actor.get_actor_location().y, 1),
-            round(actor.get_actor_location().z, 1),
+        # Don't check child actors, as they often have the same location, which can be fine
+        if actor.get_attach_parent_actor() is not None: continue
+        actor_location = (   # Round the vector and convert to hashable tuple
+            int(actor.get_actor_location().x),
+            int(actor.get_actor_location().y),
+            int(actor.get_actor_location().z)
             )
-        
-        if actor_location in seen:
-            dupes.append(actor)
+        if actor_location in location_dict:
+            location_dict[actor_location].append(actor)
         else:
-            seen.add(actor_location)
+            location_dict[actor_location] = [actor]
 
+    dupes = []
+    for this_location in location_dict:
+        if len(location_dict[this_location]) > 1:
+            dupes.append(location_dict[this_location])
     return dupes
 
-def print_actor_info(actors: unreal.Actor):
-    for actor in actors:
-        print(get_folder_path(actor))
+# Return the folder and display name of an actor
+def get_actor_folder_path(actor: unreal.Actor):
+    path = ""
+    if not actor.get_folder_path().is_none(): path = str(actor.get_folder_path())
+    return f"[{path}/{actor.get_actor_label()}]"
+
+# Get pretty actor location, ready for output to the log
+def get_formatted_actor_location(actor: unreal.Actor):
+    l = actor.get_actor_location()
+    return f"TeleportTo {int(l.x)} {int(l.y)} {int(l.z)}".ljust(40)
+
+# Get pretty actor label from list of actors, ready for output to the log
+def get_formatted_actor_list(actors: list):
+    list = []
+    for this_actor in actors:
+        list.append(get_actor_folder_path(this_actor))
+    return ":".join(list)
 
 
-dupes = get_duplicate_actors(all_actors)
-if len(dupes) > 0:
-    unreal.log_warning("Actors at same location as other actors:")
-    print_actor_info(dupes)
-else:
-    print("No duplicates found.")
+# Output all the dupe actors to the output log
+def print_actor_list_info (duplicate_entries: list):
+    print("Checking level for actors at the same location")
+    if len(duplicate_entries) == 0:
+        print("No duplicates found. 🎉")
+        return
+    
+    for this_list in duplicate_entries:
+        tp = get_formatted_actor_location(this_list[0])
+        actor_str = get_formatted_actor_list(this_list)
+        unreal.log_warning(f"{tp} {actor_str}")
+    print("--- List End 🎉---")
+
+
+def main():
+    EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+    all_actors = EAS.get_all_level_actors()
+    dupes = get_duplicate_actors(all_actors)
+    print_actor_list_info(dupes)
+
+if __name__ == '__main__':
+    main()
